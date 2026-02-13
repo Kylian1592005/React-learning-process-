@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Ex-4.1</title>
+  </head>
+
+  <style>
+    .btn-green {
+      background-color: rgb(25, 135, 84);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 10px;
+      border: none;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    .btn-red {
+      background-color: rgb(220, 53, 69);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 10px;
+      border: none;
+      font-size: 15px;
+      cursor: pointer;
+    }
+  </style>
+
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+
+    <script type="text/babel">
+      function InputText() {
+        const [isButtonON, setIsButtonON] = React.useState(true);
+
+        function toggleButton() {
+          setIsButtonON(!isButtonON);
+        }
+
+        return (
+          <button
+            onClick={toggleButton}
+            className={isButtonON ? "btn-green" : "btn-red"}
+          >
+            {isButtonON ? "ON" : "OFF"}
+          </button>
+        );
+      }
+
+      function App() {
+        return <InputText />;
+      }
+
+      const container = document.querySelector(".js-container");
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>

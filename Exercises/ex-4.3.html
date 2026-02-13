@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Ex-4.3 Clock</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev@8.6.4/dayjs.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+
+    <script type="text/babel">
+      function Clock() {
+        const [time, setTime] = React.useState(dayjs().format("HH:mm:ss"));
+
+        React.useEffect(() => {
+          const intervalId = setInterval(() => {
+            // Calculate new time each second
+            setTime(dayjs().format("HH:mm:ss"));
+          }, 1000);
+
+          // Cleanup interval when component unmounts
+          return () => clearInterval(intervalId);
+        }, []); // empty array = run once on mount
+
+        return <h2>Current time: {time}</h2>;
+      }
+
+      function App() {
+        return <Clock />;
+      }
+
+      const container = document.querySelector(".js-container");
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>

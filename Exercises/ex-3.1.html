@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Ex-3.1</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev@8.6.4/dayjs.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+      function CounterButton({ count, fun }) {
+        return (
+          <button onClick={fun}>
+            Clicked {count} {count === 1 ? 'time' : 'times'}
+          </button>
+        );
+      }
+
+      function App() {
+        const [count, setCount] = React.useState(0);
+
+        function handleClick() {
+          setCount(count + 1);
+        }
+
+        function handleReset() {
+          setCount(0);
+        }
+
+        return (
+          <>
+            <CounterButton count={count} fun={handleClick} />
+            <CounterButton count={count} fun={handleClick} />
+            
+            <button onClick={handleReset}>Reset</button>
+          </>
+        );
+      }
+      const container = document.querySelector(".js-container");
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>
