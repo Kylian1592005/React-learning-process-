@@ -4,6 +4,7 @@ import { CheckOutHeader } from './CheckOutHeader'
 export function CheckOutPage() {
   return (
     <>
+      <link rel="icon" href="cart-favicon.png" />
       <title>Checkout</title>
       <CheckOutHeader />
 
