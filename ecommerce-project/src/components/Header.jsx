@@ -8,7 +8,7 @@ import CartIcon from "../assets/images/icons/cart-icon.png"
 export function Header ({ cart }) {
   let totalQty = 0;
 
-  cart.forEach((cartItem) => {
+  cart?.forEach((cartItem) => {
     totalQty += cartItem.quantity;
   });
 
