@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { Header } from '../components/header'
+import { formatMoney } from '../utils/money'
 import './HomePage.css'
  
 export function HomePage( {cart} ) {
@@ -24,7 +25,7 @@ export function HomePage( {cart} ) {
         <div className="products-grid">
           {products.map((product) => {
             return (
-              <div key={products.id} className="product-container">
+              <div key={product.id} className="product-container">
               <div className="product-image-container">
                 <img className="product-image"
                   src={product.image} />
@@ -43,7 +44,7 @@ export function HomePage( {cart} ) {
               </div>
 
               <div className="product-price">
-                ${(product.priceCents / 100).toFixed(2)}
+                {formatMoney(product.priceCents)}
               </div>
 
               <div className="product-quantity-container">
