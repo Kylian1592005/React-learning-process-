@@ -32,7 +32,7 @@ export function CheckOutPage({ cart }) {
 
         <div className="checkout-grid">
           <div className="order-summary">
-            {setDeliveryOptions.length > 0 &&
+            {deliveryOptions.length > 0 &&
               cart.map((cartItem) => {
                 const selectedDeliveryOption = deliveryOptions.find(
                   (deliveryOption) => {
@@ -92,10 +92,10 @@ export function CheckOutPage({ cart }) {
                           }
 
                           return (
-                            <div className="delivery-option">
+                            <div key={deliveryOption.id} className="delivery-option">
                               <input
                                 type="radio"
-                                checked={
+                                defaultChecked={
                                   deliveryOption.id ===
                                   cartItem.deliveryOptionId
                                 }
