@@ -5,7 +5,7 @@ import MobileLogo from "../../assets/images/mobile-logo.png"
 import CheckOutIcon from "../../assets/images/icons/checkout-lock-icon.png"
 
 export function CheckOutHeader({ cart }) {
-   let totalQty = 0;
+  let totalQty = 0;
 
   cart.forEach((item) => {
     totalQty += item.quantity;

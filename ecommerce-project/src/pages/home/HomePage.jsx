@@ -13,7 +13,7 @@ export function HomePage( {cart} ) {
       setProducts(response.data);
     };
     getHomeData();
-  });
+  }, []);
 
   return (
      <>
