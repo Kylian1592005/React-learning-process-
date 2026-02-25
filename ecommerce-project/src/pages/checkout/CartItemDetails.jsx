@@ -20,10 +20,10 @@ export function CartItemDetails({ cartItem, loadCart }) {
             Quantity:{" "}
             <span className="quantity-label">{cartItem.quantity}</span>
           </span>
-          <span className="update-quantity-link link-primary"
+          <span className="update-quantity-link link-primary">Update</span>
+          <span className="delete-quantity-link link-primary"
             onClick={deleteCartItem}
-          >Update</span>
-          <span className="delete-quantity-link link-primary">Delete</span>
+          >Delete</span>
         </div>
       </div>
     </>
